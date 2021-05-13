@@ -1,11 +1,9 @@
-
 <template>
-  <div>
-    <slot></slot>
-  </div>
+    <div>
+        <slot></slot>
+    </div>
 </template>
-
-<script >
+<script>
 export default {
     provide() {
         return {
