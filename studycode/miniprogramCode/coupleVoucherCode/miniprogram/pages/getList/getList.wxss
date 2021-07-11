@@ -1,0 +1,17 @@
+
+.ticket-list {
+  width: 670rpx;
+  padding-top: 20rpx;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.used {
+  width: 160rpx;
+  height: 120rpx;
+  position: absolute;
+  top: 60rpx;
+  left: 255rpx;
+}

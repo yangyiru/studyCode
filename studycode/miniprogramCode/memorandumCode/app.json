@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/homeStart/homeStart",
+    "pages/add/add"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#F8D300"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,22 @@
+<view>
+  <navBar title='{{navBarTitle}}' background='#fff' back="{{true}}" bindback="handlerGobackClick"></navBar>
+  <view class="top">
+    <view class="top-title">选择一张卡券背景</view>
+    <view class="top-right-text" bindtap="toCropper">+上传个性背景</view>
+  </view>
+  <scroll-view scroll-y class="scroll">
+    <radio-group bindchange="radioChange">
+  <view class="background-list">
+    <label class="background-item" wx:for="{{background}}">
+    <image  class="background-item" src="{{item.url}}" >
+      <radio color="#F58C98" value="{{item.url}}" class="radio" />
+    </image>
+  </label>
+  
+  </view>
+</radio-group>
+
+     
+</scroll-view>
+  <view bindtap="toNext" class="next-btn">就它了，下一步</view>
+</view>

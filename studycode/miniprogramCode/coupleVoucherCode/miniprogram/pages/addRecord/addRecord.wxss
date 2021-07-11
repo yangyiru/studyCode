@@ -1,0 +1,179 @@
+.send {
+  position: absolute;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 750rpx;
+  height: 120rpx;
+  background: #F58C98;
+  font-size: 32rpx;
+  color: white;
+  line-height: 120rpx;
+}
+
+.form_info {
+  width: 640rpx;
+  height: 100rpx;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(204, 204, 204, 1);
+}
+
+.ad_container {
+  width: 690rpx;
+  height: 200rpx;
+  border-radius: 8rpx;
+  padding: 6rpx 6rpx 6rpx 6rpx;
+  background-color: white;
+}
+
+.ad_swiper {
+  height: 230rpx;
+}
+
+.form {
+  width: 100vw;
+  padding-top: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form_info {
+  width: 650rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20rpx;
+}
+
+.form_info text {
+  margin-left: 30rpx;
+}
+
+.img-list {
+  width: 690rpx;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+}
+
+.list-item {
+  position: relative;
+  border-radius: 10rpx;
+  margin-right: 15rpx;
+}
+
+.img-item {
+  width: 190rpx;
+  height: 190rpx;
+  border-radius: 10rpx;
+}
+
+.del-btn {
+  position: absolute;
+  width: 40rpx;
+  height: 40rpx;
+  right: 0rpx;
+  top: 0rpx;
+}
+
+.chooseImg {
+  width: 190rpx;
+  height: 190rpx;
+  background: #f4f4f4;
+  position: relative;
+}
+
+.img_add {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25rpx;
+  margin-left: -25rpx;
+}
+
+.title_img {
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #333;
+  margin-top: 20rpx;
+  width: 650rpx;
+}
+
+.title_tip {
+  font-size: 24rpx;
+  width: 600rpx;
+  font-weight: 500;
+  color: #ccc;
+  margin-top: 20rpx;
+  width: 650rpx;
+}
+
+scroll-view {
+  height: 90vh;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+.shed {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 999;
+}
+
+
+
+.close_icon {
+  position: absolute;
+  width: 30rpx;
+  height: 30rpx;
+  top: 22vh;
+  right: 80rpx;
+}
+
+.panels {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10rpx;
+  background-color: white;
+  justify-content: space-around;
+}
+
+
+.panel_select_d {
+  width: 250rpx;
+  height: 80rpx;
+  font-size: 26rpx;
+  color: #DDDDDD;
+  text-align: center;
+  line-height: 80rpx;
+  background-color: #FBFBFB;
+}
+
+.panel_select {
+  width: 250rpx;
+  height: 80rpx;
+  color: rgba(57, 175, 252, 1);
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.textarea {
+  width: 650rpx;
+  height: 290rpx;
+  background: #FAFAFA;
+  opacity: 0.9;
+  border-radius: 20rpx;
+  padding: 20rpx 20rpx;
+}

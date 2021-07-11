@@ -1,0 +1,33 @@
+<view>
+    <view class="home-top-wrapper">
+      <view class="home-top-msg" bindtap="handleChangeMessage">
+        <view class="user-avatar">
+          <open-data  type="userAvatarUrl"></open-data>
+        </view>
+        <text class="hello-text" >，{{message}}</text>
+      </view>
+    </view>
+    <view class="home-list-wrapper">
+      <block wx:if="{{isShow}}">
+        <view class="list-wrapper {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{list}}" wx:key="index" data-id="{{index}}" bindtap="toEdit" bindtouchstart="touchStart" bindtouchmove="touchMove">
+        <view class="list-item" >
+          <view class="list-item-left">
+              <text class="list-title">{{item.title}}</text>
+              <text class="list-date">{{item.date}} \n {{item.time}}</text>
+            </view>
+            <view class="list-content">{{item.content}}</view>
+          </view>
+          <view class="delete" data-id="{{index}}" catchtap="handleDel">删除</view>
+        </view>
+        <image src="/images/hoem_edit_icon.png" class="hoem_edit_icon" bindtap="handleEdit"></image>
+      </block>
+      <block wx:else>
+        <view class="no-data-wrapper">
+          <image src="/images/home_content_empty.png" class="home_content_empty"></image>
+          <text class="no-data-text">这里空空</text>
+          <view class="add-btn" bindtap="handleEdit">+ 新建</view>
+        </view>
+      </block>
+    </view>
+
+</view>

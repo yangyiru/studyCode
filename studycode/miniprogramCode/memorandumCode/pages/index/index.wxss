@@ -1,0 +1,17 @@
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  background: #f8d300;
+}
+.logo{
+  width: 499rpx;
+  height: 468rpx;
+  margin-bottom: 168rpx;
+}
+.login{
+  width: 550rpx;
+	height: 150rpx;
+}

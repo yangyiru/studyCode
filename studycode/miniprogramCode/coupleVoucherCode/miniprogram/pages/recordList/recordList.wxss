@@ -1,0 +1,150 @@
+.user_list {
+  padding-top: 10rpx;
+  margin-top: 10rpx;
+  padding-bottom: 10rpx;
+  background-color: white;
+}
+
+
+.user_record_info {
+  height: 60rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 35rpx;
+}
+
+
+.user_avatar {
+  width: 35rpx;
+  height: 35rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.time {
+
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 600;
+  color: #2A2A2A;
+  margin-left: 20rpx;
+}
+
+
+.create_date {
+  color: #ccc;
+  font-size: 22rpx;
+  position: absolute;
+  right: 80rpx;
+}
+
+
+.img-record-list {
+  width: 630rpx;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15rpx;
+}
+
+.list-item {
+  position: relative;
+  margin-right: 15rpx;
+}
+
+.img-item {
+  width: 190rpx;
+  height: 190rpx;
+  border-radius: 10rpx;
+}
+
+
+.des {
+  font-size: 26rpx;
+  color: #aaa;
+  padding-left: 60rpx;
+}
+
+
+.del_btn {
+  width: 140rpx;
+  height: 54rpx;
+  line-height: 54rpx;
+  text-align: center;
+  position: absolute;
+  right: 0rpx;
+  font-size: 22rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #CCCCCC;
+}
+
+
+.preview {
+  width: 670rpx;
+  height: 240rpx;
+  margin-top: 25rpx;
+  margin-left: 40rpx;
+  background: #FFF7F7;
+  border-radius: 20rpx;
+  background-image: url(https://7072-pro-0hm6x-1303088679.tcb.qcloud.la/images/style_bg0.jpg);
+  background-size: 100% 100%;
+}
+
+.ticket-title {
+  margin-left: 40rpx;
+  padding-top: 40rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.ticket-info {
+  margin-left: 40rpx;
+  padding-top: 25rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.item-point {
+  width: 15rpx;
+  height: 15rpx;
+  background: #F58C98;
+  border-radius: 50%;
+}
+
+.item-line {
+  width: 4rpx;
+  background: #EEEEEE;
+}
+
+.use-tip {
+  width: 650rpx;
+  height: 100rpx;
+  background: #FAFAFA;
+  border-radius: 10rpx;
+  padding-left: 30rpx;
+  margin-left: 30rpx;
+  line-height: 100rpx;
+
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #AAAAAA;
+}
+
+.content {
+  margin-top: 10rpx;
+  padding-left: 30rpx;
+  margin-left: 30rpx;
+  width: 650rpx;
+  background: #FAFAFA;
+  border-radius: 10rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #AAAAAA;
+}

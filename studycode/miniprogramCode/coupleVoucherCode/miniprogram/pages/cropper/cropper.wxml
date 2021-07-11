@@ -1,0 +1,7 @@
+<navBar title='{{navBarTitle}}' background='#fff' back="{{true}}" bindback="handlerGobackClick"></navBar>
+<image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}"
+  disable_width disable_height disable_rotate imgSrc="{{src}}" bindload="cropperload" bindimageload="loadimage"
+  bindtapcut="clickcut"></image-cropper>
+<view class="bottom">
+  <button class="submit" bindtap='submit'>确定</button>
+</view>

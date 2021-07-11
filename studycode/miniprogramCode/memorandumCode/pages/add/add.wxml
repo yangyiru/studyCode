@@ -1,0 +1,13 @@
+<!--pages/add/add.wxml-->
+<view class="addform-container">
+  <view class="addform-wrapper">
+    <picker mode="date" value="{{date}}" bindchange="bindDateChange">
+      <view class="picker-text">
+        {{date}} {{time}}
+      </view>
+    </picker>
+    <input placeholder-class="placeholder" bindinput="bindTitleInput" value="{{title}}" placeholder='请输入标题' class="addform-item"></input>
+    <textarea class="addform-item textarea-item" auto-height bindinput="bindTextarea" placeholder='请输入内容' value="{{content}}"></textarea>
+  </view>
+  <view bindtap="onSubForm" class="confirm-btn">保存</view>
+</view>

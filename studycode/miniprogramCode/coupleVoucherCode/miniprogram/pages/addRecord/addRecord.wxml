@@ -1,0 +1,22 @@
+
+<navBar title='{{navBarTitle}}' background='#fff' back="{{true}}" bindback="handlerGobackClick"></navBar>
+<scroll-view scroll-y>
+	<view class="form">
+			<textarea class="textarea" placeholder-class="placeholder" placeholder="记录一下..." bindinput="bindRemark" value="{{inputRemark}}" />
+<view >
+		<view class="img-list">
+			<view wx:for='{{imgList}}' wx:key='{{index}}' class='list-item' style="{{index%3 == 3?'margin-right:0':''}}">
+				<image class='img-item' src='{{item}}' mode='aspectFill'></image>
+				<image class='del-btn' src='/images/img_del.png' catchtap='delImg' data-index='{{index}}'></image>
+			</view>
+			<view wx:if="{{imgList.length<9}}" bindtap="chooseImg" class="chooseImg">
+				<image class="img_add" src="/images/img_add.png"></image>
+			</view>
+		</view>
+		</view>
+
+
+	</view>
+
+</scroll-view>
+<button disabled="{{disabled}}" class="send" bindtap='send'>{{btnStr}}</button>

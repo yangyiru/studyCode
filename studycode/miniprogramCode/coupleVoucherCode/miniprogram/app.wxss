@@ -1,0 +1,110 @@
+.container{
+  width: 100vw;
+  /* height: 100vh; */
+  background-color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+page{
+  background: #f6f6f6;
+  --color-p: #F58B98;
+}
+
+button {
+  padding-left: 0rpx;
+  padding-right: 0rpx;
+  border-radius: 0rpx;
+}
+
+button::after {
+  border: none;
+}
+
+/* 底部按钮 */
+.next-btn {
+  position: absolute;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 750rpx;
+  height: 120rpx;
+  background: var(--color-p);
+  text-align: center;
+  line-height: 120rpx;
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+/* 已使用样式 */
+.image-gray { 
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray;
+  opacity:0.9;
+}
+
+
+/* 所有输入框，未输入文字的样式 */
+.placeholder {
+  font-size: 26rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: #CCCCCC;
+}
+
+/* 卡券样式：主页、添加页、我收到的、我赠送的、详情页 */
+.custom {
+  width: 670rpx;
+  height: 240rpx;
+  margin-top: 25rpx;
+  background: #FFF7F7;
+  border-radius: 20rpx;
+  background-size: 100% 100%;
+  position: relative;
+}
+
+
+.custom-title {
+  margin-left: 40rpx;
+  padding-top: 40rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.custom-info {
+  margin-left: 40rpx;
+  padding-top: 25rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+/* 头部样式：选择背景、添加页、详情页 */
+.top {
+  width: 690rpx;
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx 30rpx;
+  align-items: center;
+  justify-content: space-between
+}
+
+.top-title {
+  font-size: 34rpx;
+  font-family: PingFang SC;
+  font-weight: 600;
+  color: #2A2A2A;
+}
+
+.top-right-text {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: var(--color-p);
+}

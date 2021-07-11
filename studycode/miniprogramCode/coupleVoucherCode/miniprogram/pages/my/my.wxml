@@ -1,0 +1,29 @@
+<!--index.wxml-->
+<view class="container" style="background: #F3F3F3;">
+  <view class='user-info-bg' > 
+    <open-data class='user-img' type="userAvatarUrl"></open-data>
+    <open-data class="text" type="userNickName"></open-data>
+  </view>
+  <view class='item' bindtap='toGetList'>
+    <image class='icon' src='/images/my_like_icon.png' />
+    <text>我赠送的</text>
+    <view class='navigator-arrow' />
+  </view>
+  <view class='item' bindtap='toGiveList'>
+    <image class='icon' src='/images/received_icon.png' />
+    <text>我收到的</text>
+    <view class='navigator-arrow' />
+  </view>
+  <button class='item' bindtap="toRecordList">
+    <image class='icon' src='/images/more_icon.png' />
+    <text>我的回忆</text>
+    <view class='navigator-arrow' />
+  </button>
+  <button class='item' open-type="contact">
+    <image class='icon' src='/images/service_icon.png' />
+    <text>联系客服</text>
+    <view class='navigator-arrow' />
+  </button>
+  
+
+</view>
