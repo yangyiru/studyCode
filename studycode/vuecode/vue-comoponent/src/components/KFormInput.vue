@@ -1,12 +1,10 @@
-
 <template>
     <div>
         <!-- v-bind="$attrs" 展开$attrs -->
-        <input v-bind="$attrs" :type="type" :value="value" @input="handleInput"/>
+        <input v-bind="$attrs" :type="type" :value="value" @input="handleInput" />
     </div>
 </template>
-
-<script >
+<script>
 export default {
     inheritAttrs: false, // 不继承$attrs 展开属性 避免设置到跟元素上
     props: {
@@ -30,4 +28,3 @@ export default {
     }
 }
 </script>
-
