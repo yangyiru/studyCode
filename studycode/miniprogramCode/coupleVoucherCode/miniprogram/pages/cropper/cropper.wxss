@@ -1,0 +1,26 @@
+.bottom{
+  position: absolute;
+  width:100%;
+  bottom:0rpx;
+  display: flex;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
+  flex-wrap:wrap;
+}
+button{
+  font-size:27rpx;
+  z-index:2;
+  padding:0 20rpx;
+  height:120rpx;
+  min-width:70rpx;
+  margin:0 4rpx;
+  text-align: center;
+  line-height: 120rpx;
+}
+.submit{
+  width: 750rpx;
+  background:#F58C98;
+  color: white;
+  font-size: 30rpx;
+}

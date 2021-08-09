@@ -1,0 +1,44 @@
+/* pages/add/add.wxss */
+.addform-container{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.addform-wrapper{
+  padding: 28rpx;
+
+}
+.picker-text{
+  font-size: 24rpx;
+  color: #999999;
+}
+.placeholder, .textarea-placeholder{
+  color: #cccccc;
+  font-size: 28rpx;
+}
+.textarea-item{
+  padding-top: 25rpx
+}
+.addform-item{
+  height: 90rpx;
+  line-height: 90rpx;
+  border-bottom: 1rpx solid #e9e9e9;
+}
+.addform-item:last-child{
+  border: 0;
+  line-height: 20rpx;
+}
+.confirm-btn{
+  width: 510rpx;
+  height: 110rpx;
+  font-size: 30rpx;
+  margin-bottom: 120rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+	background-color: #f8d300;
+	border-radius: 20rpx;
+}

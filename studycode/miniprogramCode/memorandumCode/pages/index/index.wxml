@@ -1,0 +1,8 @@
+<!--index.wxml-->
+
+<view class="container">
+	<image src="/images/logo.png" class="logo" ></image>
+<view class="login" bindtap="handleSatrt">
+	<image src="{{isHover ? '/images/logo_btn.png': '/images/logo_btn_hover.png'}}" class="login" ></image>
+</view>
+</view>

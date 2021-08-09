@@ -1,0 +1,120 @@
+/* pages/my/my.wxss */
+page{
+  background: #F3F3F3;
+}
+.user-info-bg{
+	width: 100vw;
+	height: 550rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(https://7072-pro-0hm6x-1303088679.tcb.qcloud.la/images/my.jpg);
+  background-size: 100% 100%;
+}
+.user-img{
+  margin-top: 150rpx;
+	width: 200rpx;
+	height: 200rpx;
+  border-radius: 50%;
+	border: solid 2rpx #ffe1ec;
+  margin-bottom: 25rpx;
+  overflow: hidden;
+}
+.text{
+  font-size: 30rpx;
+	font-weight: 600;
+	font-stretch: normal;
+	letter-spacing: 1px;
+	color: #666666;
+}
+.item{
+  margin-bottom: 10rpx;
+	width: 100vw;
+	height: 120rpx;
+	background-color: #ffffff;
+   display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 30rpx;
+  color: #666666;
+}
+.item .icon{
+  margin-left: 45rpx;
+  width: 35rpx;
+	height: 35rpx;
+  margin-right: 35rpx;
+}
+
+.navigator-arrow {
+  content: " ";
+  display: inline-block;
+  height: 18rpx;
+  width: 18rpx;
+  border-width: 2rpx 2rpx 0 0;
+  border-color: #f36295;
+  border-style: solid;
+  transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+  position: absolute;
+  right: 28rpx;
+}
+.shed{
+  position: absolute;
+	width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.shed-show{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+	width: 600rpx;
+	height: 430rpx;
+	background-color: #ffffff;
+	border-radius: 10rpx;
+}
+.title{
+	/* width: 249rpx; */
+	height: 29rpx;
+	font-size: 30rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 1rpx;
+	color: #666666;
+}
+.code-input{
+  font-size: 26rpx;
+  padding-left: 20rpx;
+	width: 480rpx;
+	height: 80rpx;
+  margin: 60rpx;
+	background-color: #ffffff;
+	border: solid 1rpx #dddddd;
+}
+.close_icon{
+  margin-top: 80rpx;
+	width: 40rpx;
+	height: 40rpx;
+
+}
+.placeholder-style{
+  margin-left: 20rpx;
+	font-size: 26rpx;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #cccccc;
+}
+.shed-show image{
+  width: 170rpx;
+  height: 224rpx;
+}
+.portrait-name{
+  margin-top: 10rpx;
+}

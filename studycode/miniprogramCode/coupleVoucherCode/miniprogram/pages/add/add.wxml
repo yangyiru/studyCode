@@ -1,0 +1,46 @@
+<view wx:if="{{showWindow}}" class="window">
+    <image class="give" src="{{gif}}"></image>
+    <textarea placeholder-class="placeholder" placeholder="在这里写下你想对TA说的话吧~" class="window-textarea"
+        bindinput="bindMessageInput">
+
+    </textarea>
+    <view class="btns">
+        <button bindtap="onCancel" class="window-cancel-btn">我再想想</button>
+        <button bindtap="onConfirm" bindtap="onSubscribeMessage" class="window-confirm-btn"
+            open-type="share">立刻送给TA</button>
+    </view>
+</view>
+<view class="container">
+
+    <navBar title='{{navBarTitle}}' background='#fff' back="{{true}}" bindback="handlerGobackClick"></navBar>
+    <view class="top">
+        <view class="top-title">填写卡券信息</view>
+        <view wx:if="{{action==1}}" class="top-right-text" bindtap="toCropper">更换卡券背景</view>
+    </view>
+    <view class="custom" style="background-image: url({{bgUrl}});">
+        <view class="custom-title" style="color:{{color}}">{{title}}</view>
+        <view class="custom-info" style="color:{{color}}">{{info}}</view>
+    </view>
+    <view class="body">
+        <view class="input-title">标题</view>
+        <input placeholder-class="placeholder" bindinput="bindTitleInput" value="{{title}}" placeholder='请输入标题'></input>
+        <view class="input-title">说明文字</view>
+        <input placeholder-class="placeholder" bindinput="bindInfoInput" value="{{info}}" placeholder='请输入说明'></input>
+        <view class="input-title">文字颜色</view>
+        <view class="colors">
+            <view wx:for="{{colors}}" wx:key="{{index}}" class="colors-item {{index==selectIndex?'colors-selct-item':''}}"
+                data-index="{{index}}" bindtap="selectColors" data-color="{{item}}" style="background:{{item}}"></view>
+        </view>
+    </view>
+    <view class="del_btn" wx:if="{{action==1}}" bindtap="del">删除</view>
+
+    <view wx:if="{{action==0}}" class="next-btn-box">
+        <view class="next-btn-left" data-type="1" bindtap="onAdd">保存模版</view>
+        <view class="next-btn-right" data-type="0" bindtap="onAdd">赠送好友</view>
+    </view>
+    <view wx:if="{{action==1}}" class="next-btn-box">
+        <view wx:if="{{type==0}}" class="next-btn-left" data-type="1" bindtap="onAdd">保存到我的模版</view>
+        <view wx:if="{{type==1}}" class="next-btn-left" bindtap="onUpdate">保存模版</view>
+        <view class="next-btn-right" bindtap="onUsed">赠送好友</view>
+    </view>
+</view>

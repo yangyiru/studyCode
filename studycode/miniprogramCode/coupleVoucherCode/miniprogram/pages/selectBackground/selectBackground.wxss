@@ -1,0 +1,25 @@
+
+.background-list {
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.background-item {
+  width: 690rpx;
+  height: 240rpx;
+  border-radius: 20rpx;
+  margin-top: 10rpx;
+}
+
+.scroll{
+  width: 100vw;
+  height: 72vh;
+}
+.radio{
+  position: relative;
+  bottom: 70rpx;
+  left: 620rpx;
+}
+

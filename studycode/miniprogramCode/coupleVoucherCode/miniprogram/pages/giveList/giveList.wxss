@@ -1,0 +1,136 @@
+.ticket-list {
+  width: 670rpx;
+  padding-top: 20rpx;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+
+
+.give {
+  width: 750rpx;
+  height: 686rpx;
+}
+
+
+.window {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 999;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+
+.preview-title {
+  margin-left: 40rpx;
+  padding-top: 40rpx;
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.preview-info {
+  margin-left: 40rpx;
+  padding-top: 25rpx;
+  font-size: 26rpx;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.window-preview {
+  width: 670rpx;
+  height: 240rpx;
+  margin-top: 25rpx;
+  background: #FFF7F7;
+  border-radius: 20rpx;
+  position: absolute;
+  left: 10rp;
+  top: 50%vh;
+  background-size: 100% 100%;
+  opacity: 0;
+}
+
+.window-btn {
+  width: 330rpx;
+  height: 88rpx;
+  background: var(--color-p);
+  border-radius: 44rpx;
+  font-size: 28rpx;
+  line-height: 88rpx;
+  font-family: PingFang SC;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+
+.window-cancel-btn {
+  width: 330rpx;
+  height: 88rpx;
+  background: #D7D7D7;
+  border-radius: 44rpx;
+  font-size: 28rpx;
+  line-height: 88rpx;
+  font-family: PingFang SC;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  width: 700rpx;
+  margin-top: 180rpx;
+}
+
+.message {
+  width: 670rpx;
+  text-align: center;
+  position: absolute;
+  top: 120rpx;
+  left: 40rpx;
+}
+
+.message-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-avatarUrl {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right: 15rpx;
+}
+
+.message-title {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.message-content {
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.used {
+  width: 160rpx;
+  height: 120rpx;
+  position: absolute;
+  top: 60rpx;
+  left: 255rpx;
+}

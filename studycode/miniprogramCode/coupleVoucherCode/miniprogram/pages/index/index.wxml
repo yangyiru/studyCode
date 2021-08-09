@@ -1,0 +1,28 @@
+<!--index.wxml-->
+
+<view class="container">
+
+	<view class="top-img">
+		<image class="top-img" src="../../images/top_img.png"></image>
+	</view>
+
+	<view class="ticket-list">
+		<view bindtap="toAdd" class="create">
+			+ 添加自定义模版
+		</view>
+
+		<view wx:for="{{myTemplates}}" class="custom" style="background-image: url({{item.backgroundurl}});"
+			bindtap="toInfo" data-item="{{item}}">
+			<view class="custom-title" style="color:{{item.color}}">{{item.title}}</view>
+			<view class="custom-info" style="color:{{item.color}}">{{item.info}}</view>
+		</view>
+
+	</view>
+	<view class="ticket-list">
+		<view wx:for="{{templates}}" bindtap="toInfo" data-item="{{item}}"
+			class="ticket-item {{index%2==0?'ticket-pink-bg':'ticket-blue-bg'}}">
+			<text class="ticket-title">{{item.title}}</text>
+			<view class="ticket-info {{index%2==0?'ticket-pink-info':'ticket-blue-info'}} ">{{item.info}}</view>
+		</view>
+	</view>
+</view>

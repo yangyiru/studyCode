@@ -1,0 +1,32 @@
+<navBar title='{{navBarTitle}}' background='#fff' back="{{true}}" bindback="handlerGobackClick"></navBar>
+<view wx:if="{{showWindow}}" class="window">
+
+<image wx:if="{{showGif}}" class="give" src="../../images/open.gif"></image>
+<view wx:if="{{showBtn&&ticket.message}}" class="message">
+  <view  class="message-top">
+    <image class="message-avatarUrl" src="{{ticket.userInfo.avatarUrl}}"></image>
+    <view class="message-title">{{ticket.userInfo.nickName}}给你留言：</view>
+  </view>
+  <view class="message-content">“{{ticket.message}}”</view>
+</view>
+<view animation="{{animationData}}" class="window-preview" style="background-image: url({{ticket.backgroundurl}});">
+  <view class="preview-title" style="color:{{ticket.color}}">{{ticket.title}}</view>
+  <view class="preview-info" style="color:{{ticket.color}}">{{ticket.info}}</view>
+</view>
+<view class="btns">
+  <button bindtap="onCancel" wx:if="{{showBtn}}" class="window-cancel-btn">我再想想</button>
+  <button bindtap="onGive" wx:if="{{showBtn}}" disabled="{{giveDisabled}}" class="window-btn">收下</button>
+</view>
+
+</view>
+
+<view class="ticket-list">
+ 
+<view wx:for="{{tickets}}" style="background-image: url({{item.ticketInfo.backgroundurl}});" class="custom {{item.status==1?'image-gray':''}}" data-status="{{item.status}}" data-ticketid="{{item._id}}" data-id="{{item.ticketInfo._id}}" bindtap="toInfo">
+<image wx:if="{{item.status==1}}" class="used" src="../../images/used.png"></image>
+<view style="color:{{item.ticketInfo.color}}"  class="custom-title">{{item.ticketInfo.title}} 
+<text style="color:{{item.ticketInfo.color}}"class="custom-info" wx:if="{{item.status==0}}">(未使用)</text>
+</view>
+<view style="color:{{item.ticketInfo.color}}" class="custom-info">{{item.ticketInfo.info}}</view>
+</view>
+</view>

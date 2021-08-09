@@ -1,0 +1,14 @@
+<navBar title='{{navBarTitle}}' background='#fff' back="{{true}}" bindback="handlerGobackClick"></navBar>
+<view class="ticket-list">
+
+<view wx:for="{{tickets}}" style="background-image: url({{item.backgroundurl}});" class="custom {{item.useStatus==1?'image-gray':''}}" data-id="{{item._id}}" bindtap="toInfo">
+  <image wx:if="{{item.useStatus==1}}" class="used" src="../../images/used.png"></image>
+<view style="color:{{item.color}}" class="custom-title">{{item.title}}
+<text class="custom-info" style="color:{{item.color}}" wx:if="{{item.status==0&&item.useStatus==0}}">(未领取)</text>
+<text class="custom-info" style="color:{{item.color}}" wx:if="{{item.status==1&&item.useStatus==0}}">(已领取)</text>
+</view>
+<view class="custom-info" style="color:{{item.color}}" >{{item.info}}</view>
+
+
+</view>
+</view>

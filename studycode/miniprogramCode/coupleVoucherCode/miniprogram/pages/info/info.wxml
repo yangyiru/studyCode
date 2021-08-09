@@ -1,0 +1,118 @@
+<view wx:if="{{showWindow}}" class="window">
+	<image class="give" src="{{gif}}"></image>
+	<textarea placeholder-class="placeholder" placeholder="在这里写下你想对TA说的话吧~" class="window-textarea"
+		bindinput="bindMessageInput">
+
+    </textarea>
+	<view class="btns">
+		<button bindtap="onCancel" class="window-cancel-btn">我再想想</button>
+		<button bindtap="onSubscribeMessage" class="window-confirm-btn"
+			open-type="share">立刻送给TA</button>
+	</view>
+</view>
+
+<view class='container'>
+	<navBar title='{{navBarTitle}}' background='#fff' back="{{true}}" bindback="handlerGobackClick"></navBar>
+	<view class="top">
+    <view class="top-title">卡券信息</view>
+    <view wx:if="{{type==3||type==1||isTemplate==1}}" bindtap="del" class="top-right-text" >删除卡券</view>
+</view>
+	<view class="custom {{ticket.useStatus==1?'image-gray':''}}" style="background-image: url({{ticket.backgroundurl}});">
+		<image wx:if="{{ticket.useStatus==1}}" class="used" src="../../images/used.png"></image>
+		<view style="color:{{ticket.color}}" class="custom-title">{{ticket.title}}</view>
+		<view style="color:{{ticket.color}}" class="custom-info">{{ticket.info}}</view>
+	</view>
+	<scroll-view  class="scroll" scroll-y scroll-into-view="{{intoView}}" >
+		<view class='container' style="height: 65vh;">
+			<view wx:if="{{ticket.userInfo}}" class="info-item">
+				<view class="info-top">
+					<image class="info-icon" src="../../images/info_receiver_icon.png"></image>
+					<view class="info-item-title">赠送人</view>
+				</view>
+				<view class="info-item-introduce">{{ticket.userInfo.nickName}}</view>
+			</view>
+
+			<view class="info-item">
+				<view class="info-top">
+					<image class="info-icon" src="../../images/info_theme_icon.png"></image>
+					<view class="info-item-title">主题</view>
+				</view>
+				<view class="info-item-introduce">{{ticket.title}}</view>
+			</view>
+
+			<view class="info-item">
+				<view class="info-top">
+					<image class="info-icon" src="../../images/info_explain_icon.png"></image>
+					<view class="info-item-title">说明</view>
+				</view>
+				<view class="info-item-introduce">{{ticket.info}}</view>
+			</view>
+			<view wx:if="{{ticket.message}}" class="info-item">
+				<view class="info-top">
+					<image class="info-icon" src="../../images/info_message_icon.png"></image>
+					<view class="info-item-title">留言</view>
+				</view>
+				<view class="info-item-introduce">{{ticket.message}}</view>
+			</view>
+
+			<view wx:if="{{ticket.useUserInfo}}" class="info-item">
+				<view class="info-top">
+					<image class="info-icon" src="../../images/info_receiver_icon.png"></image>
+					<view class="info-item-title">接收人</view>
+				</view>
+				<view class="info-item-introduce">{{ticket.useUserInfo.nickName}}</view>
+			</view>
+
+			<view wx:if="{{ticket.useTime}}" class="info-item">
+				<view class="info-top">
+					<image class="info-icon" src="../../images/info_time_icon.png"></image>
+					<view class="info-item-title">使用时间</view>
+				</view>
+				<view class="info-item-introduce">{{ticket.useTime}}</view>
+			</view>
+
+			
+
+			<!-- <view class="del_btn" wx:if="{{type==3||type==1||isTemplate==1}}" bindtap="del">删除</view> -->
+
+
+			<view wx:if="{{recordList.length>0}}" style="background: #fff;" class="info-item" >
+				<view class="info-top">
+				<image class="info-icon" src="../../images/info_recall_icon.png"></image>
+				<view  class="title">我们的回忆</view>
+			</view>
+			</view>
+			<view wx:for="{{recordList}}" id="x{{item._id}}" class="content" wx:for-index='recordIndex'>
+				<view class="user_record_info">
+					<image class="user_avatar" src="{{item.userInfo.avatarUrl}}"></image>
+					<text class="user_nick_name">{{item.userInfo.nickName}}</text>
+					<text class="create_date"> {{item.date}} {{item.time}}</text>
+				</view>
+
+
+				<view class="user_record_info">
+					<view wx:if="{{item.remark}}" class="nick_name">{{item.remark}}</view>
+
+				</view>
+
+				<view class="img-record-list">
+					<view data-item="{{i}}" data-id="{{item._id}}" data-type="1" data-index="{{recordIndex}}"
+						bindtap="previewImage" wx:for='{{item.imgs}}' wx:for-item="i" wx:key='{{index}}' class='list-item'
+						style="{{index%3 == 3?'margin-right:0':''}}">
+						<image lazy-load="ture" class='img-item' src='{{i}}?imageView2/1/w/100/h/100' mode='aspectFill'>
+						</image>
+					</view>
+				</view>
+			</view>
+		</view>
+	</scroll-view>
+	<button class="next-btn" bindtap="showWindow" wx:if="{{type==1&&ticket.status==0}}">再送一次</button>
+	<button class="next-btn" wx:if="{{type==1&&ticket.status==1}}" disabled="true">已赠送</button>
+	<button class="next-btn" wx:if="{{type==2&&ticket.status==0}}" bindtap="onGive">领取</button>
+	<button class="next-btn" wx:if="{{type==2&&ticket.status==1}}" disabled="true">已被领取</button>
+	<button class="next-btn" bindtap="onUse"
+		wx:if="{{type==3&&status==0}}">使用</button>
+	<button class="next-btn" wx:if="{{type==3&&status==1}}" disabled="true">已使用</button>
+	<button class="next-btn" wx:if="{{ticket.useStatus==1}}" bindtap="toRecord">记录一下</button>
+
+</view>

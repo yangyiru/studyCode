@@ -1,0 +1,30 @@
+<navBar title='{{navBarTitle}}' background='#fff' back="{{true}}" bindback="handlerGobackClick"></navBar>
+<view wx:for="{{recordList}}" class="user_list" wx:for-index='recordIndex'>
+  <view class="user_record_info">
+    <view class="item-point"></view>
+    <text class="time"> {{item.useTime}}</text>
+    <!-- <view wx:if="{{item._openid==openid}}" class="del_btn" bindtap="recordDel"
+      data-item="{{item}}">删除</view> -->
+  </view>
+  <view class="use-tip">
+    “{{item.useUserInfo.nickName}}”对“{{item.title}}”进行使用
+  </view>
+
+<view wx:for="{{item.records}}" class="content">
+  <view class="user_record_info" style="margin-left: 0rpx;">
+					<image class="user_avatar" src="{{item.userInfo.avatarUrl}}"></image>
+					<text class="user_nick_name">{{item.userInfo.nickName}}</text>
+					<text class="create_date"> {{item.date}} {{item.time}}</text>
+        </view>
+        
+    <view wx:if="{{item.remark}}">{{item.remark}}</view>
+  <view class="img-record-list">
+    <view data-item="{{i}}" data-id="{{item._id}}" data-type="1" data-index="{{recordIndex}}" bindtap="previewImage"
+      wx:for='{{item.imgs}}' wx:for-item="i" wx:key='{{index}}' class='list-item'
+      style="{{index%3 == 3?'margin-right:0':''}}">
+      <image lazy-load="ture" class='img-item' src='{{i}}?imageView2/1/w/100/h/100' mode='aspectFill'>
+      </image>
+    </view>
+  </view>
+</view>
+</view>

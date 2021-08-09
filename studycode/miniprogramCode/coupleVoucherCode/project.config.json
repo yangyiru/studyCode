@@ -1,0 +1,143 @@
+{
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "lazyloadPlaceholderEnable": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "useIsolateContext": true,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "showES6CompileOption": false
+  },
+  "appid": "wx5f335f0f68902e2c",
+  "projectname": "%E6%83%85%E4%BE%A3%E5%88%B8",
+  "libVersion": "2.8.1",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "ticket={\"_id\":\"ogiA34zVDrUyck0ibJVDy36thIE8-1600505603128\",\"title\":\"月亮券\",\"info\":\"你看你看月亮的脸\",\"backgroundurl\":\"https://7072-pro-0hm6x-1303088679.tcb.qcloud.la/images/6.png\",\"color\":\"#f5e08b\",\"status\":0,\"useStatus\":0,\"userInfo\":{\"avatarUrl\":\"https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKTfxfergG0RlVCvZbM6nMT0EVcCwOGV9vhhayoWwDjhj4qkhcZsXmw8M5ic19ZBl6AiaRbOSBMMicTA/132\",\"city\":\"Changsha\",\"country\":\"China\",\"gender\":1,\"language\":\"zh_CN\",\"nickName\":\"陈宇明\",\"province\":\"Hunan\"},\"date\":\"2020-09-19\",\"time\":\"16:49\",\"createdAt\":1600505603128,\"message\":\"vvv\"}&type=1",
+          "scene": null
+        },
+        {
+          "id": 1,
+          "name": "选择背景",
+          "pathName": "pages/selectBackground/selectBackground",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 2,
+          "name": "pages/info/info",
+          "pathName": "pages/info/info",
+          "query": "_id=ogiA34zVDrUyck0ibJVDy36thIE8-1600510606315",
+          "scene": null
+        },
+        {
+          "id": 3,
+          "name": "pages/addRecord/addRecord",
+          "pathName": "pages/addRecord/addRecord",
+          "query": "_id=6518b7395f5602a50119dceb2916668c&type=2",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/getList/getList",
+          "pathName": "pages/getList/getList",
+          "query": "_id=60173c665f560c5a00ffdf3944bb5f81&type=2",
+          "scene": null
+        },
+        {
+          "id": 5,
+          "name": "pages/giveList/giveList",
+          "pathName": "pages/giveList/giveList",
+          "query": "_id=-1599915678000&type=2",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/authorize/authorize",
+          "pathName": "pages/authorize/authorize",
+          "query": "_id=60173c665f56521a0103486230beeb5d&type=2",
+          "scene": null
+        },
+        {
+          "id": 7,
+          "name": "pages/recordList/RecordList",
+          "pathName": "pages/recordList/recordList",
+          "query": "_id=65825b355f57aab0010057ff575cffd5&type=2",
+          "scene": null
+        },
+        {
+          "id": 8,
+          "name": "添加",
+          "pathName": "pages/add/add",
+          "query": "bgUrl=https://7072-pro-0hm6x-1303088679.tcb.qcloud.la/backgroundurl/782411.8946559738.png",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/cropper/cropper",
+          "pathName": "pages/cropper/cropper",
+          "query": "_id=65825b355f57aab0010057ff575cffd5&type=2",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/add/add",
+          "pathName": "pages/add/add",
+          "query": "ticket={\"title\":\"1\",\"info\":\"2\",\"backgroundurl\":\"https://7072-pro-0hm6x-1303088679.tcb.qcloud.la/backgroundurl/782411.8946559738.png\",\"color\":\"#fafafa\",\"status\":0,\"useStatus\":0,\"userInfo\":{\"avatarUrl\":\"https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKTfxfergG0RlVCvZbM6nMT0EVcCwOGV9vhhayoWwDjhj4qkhcZsXmw8M5ic19ZBl6AiaRbOSBMMicTA/132\",\"city\":\"Changsha\",\"country\":\"China\",\"gender\":1,\"language\":\"zh_CN\",\"nickName\":\"陈宇明\",\"province\":\"Hunan\"},\"_id\":\"ogiA34zVDrUyck0ibJVDy36thIE8-1600184572500\",\"createTime\":{\"$date\":{\"offset\":0}}}&type=1",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

@@ -1,6 +1,6 @@
+
 <template>
     <div id="app">
-        <HelloWorld msg="Welcome to Your Vue.js App" />
         <KForm :model="userInfo" :rules="rules">
             <KFormItem label="用户名：" prop="name">
                 <KFormInput v-model="userInfo.name" placeholder="请输入用户名" />
@@ -8,11 +8,13 @@
             <KFormItem label="密码：" prop="password">
                 <KFormInput v-model="userInfo.password" type="password" placeholder="请输入密码" />
             </KFormItem>
+            <KFormItem>
+            <button >提交</button>
+            </KFormItem>
         </KForm>
     </div>
 </template>
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import KForm from '@/components/KForm.vue'
 import KFormInput from '@/components/KFormInput.vue'
 import KFormItem from '@/components/KFormItem.vue'
@@ -32,7 +34,6 @@ export default {
         }
     },
     components: {
-        HelloWorld,
         KForm,
         KFormItem,
         KFormInput
