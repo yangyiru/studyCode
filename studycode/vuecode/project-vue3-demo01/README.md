@@ -157,4 +157,107 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
   </script>
   ```
 
-  
+  #### 1.4 vue2与vue3的响应式对比（******）
+
+  1. ##### vue2的响应式
+
+     + **核心：** 
+
+       + 对象：通过defineProperty对对象的已有属性值的读取和修改进行劫持（监视 / 拦截）
+       + 数组：通过重写数组更新数组一系列更新元素的方法来实现元素修改的劫持
+
+       ```js
+       Object.defineProperty(data, 'count', {
+       	get() {},
+           set() {}
+       })
+       ```
+
+     + **问题：**
+
+       + 对象直接新添加的属性或删除已有属性，视图不会自动更新
+       + 数组若直接通过下标替换元素或更新length，视图不会自动更新
+
+  2. ##### vue3的响应式
+
+     + ###### 核心：
+
+       + 通过Proxy（代理）：拦截对data任意属性的任意操作，包括属性的读写，属性的添加、删除等等....
+
+       + 通过Reflect（反射）：动态对被代理对象的相应属性进行特定的操作
+
+       + 文档
+
+         + https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy
+         + https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect
+
+         ```js
+         new Proxy(data, {
+           // 拦截读取属性值
+           get(target, prop) {
+             return Reflect.get(target, prop)
+           },
+           // 拦截设置属性值或添加新属性
+           set(target, prop, value) {
+               return Reflect.set(target, prop, value)
+           },
+           // 拦截删除属性
+           deleteProperty(target, prop) {
+               return Reflect.deleteProperty(target, prop)
+           }
+         })
+         
+         proxy.name = 'Ada'
+         ```
+
+         ```html
+         <!DOCTYPE html>
+         <html lang="en">
+             <head>
+               <meta charset="UTF-8">
+               <meta name="viewport" content="width=device-width, initial-scale=1.0">
+               <title>Proxy 与 Reflect</title>
+             </head>
+             <body>
+                 <script>
+                 	const user = {
+                         name: 'Ada',
+                         age: '20'
+                     }
+                     const proxyUser = new Proxy(user, {
+                         get(target, prop) {
+                             console.log('劫持get()', prop)
+                             return Reflect.get(target, prop)
+                         },
+                         set(target, prop, val) {
+                             console.log('劫持set()', prop, val)
+                             return Reflect.set(target, prop, val)
+                         },
+                         deleteProperty(target, prop) {
+                             console.log('劫持delete属性', prop)
+                             return Reflect.deleteProperty(target, prop)
+                         }
+                     })
+                     
+            			// 读取属性值
+                     console.log(proxyUser === user);
+                     console.log(proxyUser.name === user.name);
+                     
+                     // 设置属性值
+                     proxyUser.name = 'Ada yeung';
+                     proxyUser.age = '21';
+                     console.log('设置属性后的user', user);
+                     
+            		   // 添加属性
+                     proxyUser.sex = '女';
+                     console.log('添加属性后的user',user);
+                     
+                     // 删除属性
+                     delete proxyUser.sex;
+                     console.log('delete属性后的user',user);
+                 </script>
+             </body>
+         </html>
+         ```
+
+         
