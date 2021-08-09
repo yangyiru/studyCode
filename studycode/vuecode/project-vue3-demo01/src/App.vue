@@ -1,5 +1,6 @@
 <template>
   <h3>比较vue2与vue3的响应式****</h3>
+  <h5>vue2的响应式</h5>
 </template>
 
 <script lang="ts">

@@ -146,6 +146,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
         // obj.name = '1254'  直接使用目标对象的方式来更新目标对象中的成员的值，是不可能的，只能使用代理对象的方式来更新数据（响应式数据）
         userInfo.name += '===';
         userInfo.age += 1;
+        userInfo.wife.name += '222';
       }
       return{
         userInfo,
