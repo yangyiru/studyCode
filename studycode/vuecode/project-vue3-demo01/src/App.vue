@@ -1,14 +1,34 @@
 <template>
-  <h3>比较vue2与vue3的响应式****</h3>
-  <h5>vue2的响应式</h5>
+  <h3>App</h3>
+  <h5>msg: {{msg}}</h5>
+  <button @click="fn('----')">更新</button>
+  <hr>
+  <child :msg="msg" placeholder="I'm is $attrs数据">
+    <div>
+      我是slot的内容
+    </div>
+  </child>
 </template>
 
 <script lang="ts">
-import { defineComponent, reactive } from 'vue';
-
+import { defineComponent, reactive, ref } from 'vue';
+import child from './components/child.vue';
 export default defineComponent({
   name: 'App',
-  setup() {}
+  components: {
+    child
+  },
+  setup() {
+    const msg = ref('Ada');
+    function fn(param: any) {
+      console.log('msg: ', msg, param)
+      msg.value += param
+    }
+    return {
+      msg,
+      fn
+    }
+  }
 });
 </script>
 
@@ -17,7 +37,7 @@ export default defineComponent({
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  text-align: left;
   color: #2c3e50;
   margin-top: 60px;
 }

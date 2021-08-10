@@ -157,107 +157,132 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
   </script>
   ```
 
-  #### 1.4 vue2与vue3的响应式对比（******）
+#### 1.4 vue2与vue3的响应式对比（******）
 
-  1. ##### vue2的响应式
+##### 1.4.1 vue2的响应式
 
-     + **核心：** 
++ **核心：** 
 
-       + 对象：通过defineProperty对对象的已有属性值的读取和修改进行劫持（监视 / 拦截）
-       + 数组：通过重写数组更新数组一系列更新元素的方法来实现元素修改的劫持
+  + 对象：通过defineProperty对对象的已有属性值的读取和修改进行劫持（监视 / 拦截）
+  + 数组：通过重写数组更新数组一系列更新元素的方法来实现元素修改的劫持
 
-       ```js
-       Object.defineProperty(data, 'count', {
-       	get() {},
-           set() {}
-       })
-       ```
+  ```js
+  Object.defineProperty(data, 'count', {
+  	get() {},
+      set() {}
+  })
+  ```
 
-     + **问题：**
++ **问题：**
 
-       + 对象直接新添加的属性或删除已有属性，视图不会自动更新
-       + 数组若直接通过下标替换元素或更新length，视图不会自动更新
+  + 对象直接新添加的属性或删除已有属性，视图不会自动更新
+  + 数组若直接通过下标替换元素或更新length，视图不会自动更新
 
-  2. ##### vue3的响应式
+##### 1.4.2 vue3的响应式
 
-     + ###### 核心：
++ ###### 核心：
 
-       + 通过Proxy（代理）：拦截对data任意属性的任意操作，包括属性的读写，属性的添加、删除等等....
+  + 通过Proxy（代理）：拦截对data任意属性的任意操作，包括属性的读写，属性的添加、删除等等....
 
-       + 通过Reflect（反射）：动态对被代理对象的相应属性进行特定的操作
+  + 通过Reflect（反射）：动态对被代理对象的相应属性进行特定的操作
 
-       + 文档
+  + 文档
 
-         + https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy
-         + https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect
+    + https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy
+    + https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Reflect
 
-         ```js
-         new Proxy(data, {
-           // 拦截读取属性值
-           get(target, prop) {
-             return Reflect.get(target, prop)
-           },
-           // 拦截设置属性值或添加新属性
-           set(target, prop, value) {
-               return Reflect.set(target, prop, value)
-           },
-           // 拦截删除属性
-           deleteProperty(target, prop) {
-               return Reflect.deleteProperty(target, prop)
-           }
-         })
-         
-         proxy.name = 'Ada'
-         ```
+    ```js
+    new Proxy(data, {
+      // 拦截读取属性值
+      get(target, prop) {
+        return Reflect.get(target, prop)
+      },
+      // 拦截设置属性值或添加新属性
+      set(target, prop, value) {
+          return Reflect.set(target, prop, value)
+      },
+      // 拦截删除属性
+      deleteProperty(target, prop) {
+          return Reflect.deleteProperty(target, prop)
+      }
+    })
+    
+    proxy.name = 'Ada'
+    ```
 
-         ```html
-         <!DOCTYPE html>
-         <html lang="en">
-             <head>
-               <meta charset="UTF-8">
-               <meta name="viewport" content="width=device-width, initial-scale=1.0">
-               <title>Proxy 与 Reflect</title>
-             </head>
-             <body>
-                 <script>
-                 	const user = {
-                         name: 'Ada',
-                         age: '20'
-                     }
-                     const proxyUser = new Proxy(user, {
-                         get(target, prop) {
-                             console.log('劫持get()', prop)
-                             return Reflect.get(target, prop)
-                         },
-                         set(target, prop, val) {
-                             console.log('劫持set()', prop, val)
-                             return Reflect.set(target, prop, val)
-                         },
-                         deleteProperty(target, prop) {
-                             console.log('劫持delete属性', prop)
-                             return Reflect.deleteProperty(target, prop)
-                         }
-                     })
-                     
-            			// 读取属性值
-                     console.log(proxyUser === user);
-                     console.log(proxyUser.name === user.name);
-                     
-                     // 设置属性值
-                     proxyUser.name = 'Ada yeung';
-                     proxyUser.age = '21';
-                     console.log('设置属性后的user', user);
-                     
-            		   // 添加属性
-                     proxyUser.sex = '女';
-                     console.log('添加属性后的user',user);
-                     
-                     // 删除属性
-                     delete proxyUser.sex;
-                     console.log('delete属性后的user',user);
-                 </script>
-             </body>
-         </html>
-         ```
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Proxy 与 Reflect</title>
+        </head>
+        <body>
+            <script>
+            	const user = {
+                    name: 'Ada',
+                    age: '20'
+                }
+                const proxyUser = new Proxy(user, {
+                    get(target, prop) {
+                        console.log('劫持get()', prop)
+                        return Reflect.get(target, prop)
+                    },
+                    set(target, prop, val) {
+                        console.log('劫持set()', prop, val)
+                        return Reflect.set(target, prop, val)
+                    },
+                    deleteProperty(target, prop) {
+                        console.log('劫持delete属性', prop)
+                        return Reflect.deleteProperty(target, prop)
+                    }
+                })
+                
+       			// 读取属性值
+                console.log(proxyUser === user);
+                console.log(proxyUser.name === user.name);
+                
+                // 设置属性值
+                proxyUser.name = 'Ada yeung';
+                proxyUser.age = '21';
+                console.log('设置属性后的user', user);
+                
+       		   // 添加属性
+                proxyUser.sex = '女';
+                console.log('添加属性后的user',user);
+                
+                // 删除属性
+                delete proxyUser.sex;
+                console.log('delete属性后的user',user);
+            </script>
+        </body>
+    </html>
+    ```
 
-         
+#### 1.5 setup细节
+
+##### 1.5.1. setup执行时机
+
++ 在`beforeCreate`之前执行（一次），此时组件对象还没有创建
++ `this`是`underfind`,不能捅过this来访问`data / computed / methods / props`
++ 所有的`composition API`相关回调函数中也是不可以
+
+##### 1.5.2 setup返回值
+
++ 一般返回一个对象：为模板提供数据，也就是模板中可以直接使用此对象的所有属性/方法
++ 返回对象中的属性会与`data`函数返回对象的属性合并成为组件对象的属性
++ 返回对象的方法会与`methods`中的方法合并成为组件对象的方法
++ 如果有重名，setup优先
+  + **注意事项**
+    + 一般不要混合使用：methods中可以访问`setup`提供的属性和方法，但在`setup`方法中不能访问`data`和`methods`
+    + `setup`不能是一个`async`函数： 因为返回值不在是return的对象，而是`promise`, 模板看不到return对象中的属性数据
+
+##### 1.5.3 setup参数
+
++ **`setup(props, context) / setup(props, {attrs, slots, emit})`**
+  + **props**: 包含`props`配置声明且传入了的所有属性对象
+  + **attrs：**包含没有在`props`配置中声明的属性的对象，相当于`this.$attrs`
+  + **slots：**包含所有传入的插槽内容的对象，相当于`this.$slots`
+  + **emit：**用来分发自定义事件的函数，相当于`this.$emit`
+
