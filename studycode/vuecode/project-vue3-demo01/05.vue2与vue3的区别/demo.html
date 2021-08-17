@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue2与vue3的区别</title>
+</head>
+<body>
+    <script>
+        // vue2 核心：object.defindProperty()
+        const obj = {};
+        let temp = null;
+        Object.defineProperty(obj, 'prop', {
+            get() {
+                console.log('get');
+                return temp
+            },
+            set(val) {
+                temp = val
+            }
+        })
+        obj.prop = 9999; // 通过原型链
+        console.log(obj.prop, 'obj')
+        // =========================================================================
+        // vue3 响应式核心
+        const user = {
+            name: 'Ada',
+            age: 20,
+            wife: {
+                name: 'yeung',
+                age: 20
+            }
+        }
+        const proxyObj = new Proxy(user, {
+            get(target, prop) {
+                return Reflect.get(target, prop)
+            },
+            set(target, prop, value) {
+                return Reflect.set(target, prop, value)
+            },
+            deleteProperty(target, prop) {
+                return Reflect.deleteProperty(target, prop)
+            }
+        })
+        console.log(user.name, '使用代理器获取name属性')
+        console.log('===============================')
+        proxyObj.age = 21
+        proxyObj.wife.name = 'Ada yeung'
+        console.log(user, '设置后的对象==============')
+        console.log('===============================')
+        delete proxyObj.wife.age;
+        console.log(user, '删除后的对象==============')
+    </script>
+</body>
+</html>

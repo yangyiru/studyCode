@@ -281,8 +281,160 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ##### 1.5.3 setup参数
 
 + **`setup(props, context) / setup(props, {attrs, slots, emit})`**
+  
   + **props**: 包含`props`配置声明且传入了的所有属性对象
   + **attrs：**包含没有在`props`配置中声明的属性的对象，相当于`this.$attrs`
   + **slots：**包含所有传入的插槽内容的对象，相当于`this.$slots`
   + **emit：**用来分发自定义事件的函数，相当于`this.$emit`
+  
+  ```vue
+  // parent组件
+  <template>
+    <h3>App</h3>
+    <h5>msg: {{msg}}</h5>
+    <button @click="fn('----')">更新</button>
+    <hr>
+    <child :msg="msg" placeholder="I'm is $attrs数据" @callback="fn">
+      <div>
+        我是slot的内容
+      </div>
+    </child>
+    <p></p>
+  </template>
+  
+  <script lang="ts">
+  import { defineComponent, reactive, ref } from 'vue';
+  import child from './components/child.vue';
+  export default defineComponent({
+    name: 'App',
+    components: {
+      child
+    },
+    setup() {
+      const msg = ref('Ada');
+      function fn(param: any) {
+        console.log('msg: ', msg, param)
+        msg.value += param
+      }
+      // function callback(text: string) {
+      //   msg.value += text
+      // }
+      return {
+        msg,
+        fn,
+        // callback
+      }
+    }
+  });
+  </script>
+  ```
+  
+  ```vue
+  // child 组件
+  <template>
+      <h3>Child 组件</h3>
+      <h5>props msg: {{msg}}</h5>
+      <!-- <p>
+          <strong>$attrs label:</strong> 
+          {{$attrs.placeholder}}
+      </p>
+      <h4>slot相关内容</h4>
+      <div>
+          <slot></slot>
+      </div>
+      <h4>$emit相关</h4> -->
+      <button @click="handleEmit">emit按钮（我要传值给父组件）</button>
+  </template>
+  
+  <script lang="ts">
+  import { defineComponent, reactive } from 'vue'
+  export default defineComponent({
+      name: 'Child',
+      props: ['msg'],
+      // setup 细节问题
+      // 一、执行问题
+      // 1. setup在beforeCreate生命周期回调之前执行，并且就执行一次
+      // 由此推断出：setup在执行的时候，当前的组件还没有创建出来，也就意味着： 组件实例对象this不能用
+      // this是underfind, 所以不能通过this来访问 data / props / computed / methods
+  
+      // 二、setup 返回值
+      // 1. setup返回值是一个对象，内部的属性可以在tempalte中使用
+      // 2. setup中的对象内部属性和data函数中的对象的属性都可以在template模板中使用
+      // 3. setup中的对象内部属性和data函数中的对象属性会合并成为组件对象的属性
+      // 4. setup中的对象的方法会和methods中的方法合并成为组件对象的方法
+      // 注意事项：
+      // 1. 在vue3中尽量不要混合使用data和setup及methods和setup，但是在setup方法中方不能访问data和methods
+      // 2. setup不能是一个async函数：因为返回值不再是return的对象，而是promise,模板看不到return对象中的属性数据
+      setup(props, context: any) {
+          // props是父组件传给子组件的值
+          // context包含attr(获取组件的属性，除props之外的所有属性)，emit(分发事件)， slot(插槽)
+          console.log('setup的入参：', props)
+          console.log('setup的context：', context)
+          console.log('attr信息：', context.attrs.placeholder)
+          const handleEmit = () => {
+              context.emit('callback', '++++')
+          }
+          return {
+              handleEmit
+          }
+      }
+  })
+  </script>
+  ```
+
+##### 1.5.4 reactive与ref的细节问题
+
++ `ref`与`reactive`是vue3的composition API中2个最重要的响应式API
++ `ref`用来处理基本类型数据，`reactive`用来处理对象（递归深度响应式）
++ 如果用ref定义对象或数组，内部会自动将对象/数组转换为reactive的代理对象
++ ref内部：通过给value属性添加getter/setter来实现对数据的劫持
++ reactive内部：通过使用Proxy来实现对对象内部的所有数据的劫持，并通过Reflect操作对象内部数据
++ ref的数据操作：在js中要`.value`,但是在template中则不需要（内部解析模板时会自动添加`.value`）
+
+```vue
+<template>
+  <h3>ref和reactive的细节问题</h3>
+  <h4>M1: {{m1}}</h4>
+  <h4>M2: {{m2}}</h4>
+  <h4>M3: {{m3}}</h4>
+  <button @click="update">更新</button>
+</template>
+
+<script lang="ts">
+import { defineComponent, reactive, ref } from 'vue';
+export default defineComponent({
+  name: 'App',
+  setup() {
+    const m1 = ref('12541')
+    const m2 = ref({
+      name: 'Ada',
+      project: {
+        name: '深圳'
+      }
+    })
+    const m3 = reactive({
+      name: 'Ada reactive',
+      age: '15',
+      wife: {
+        name: '子集的自己'
+      }
+    })
+    const update = () => {
+      m1.value += '++++';
+      m2.value.name += '====';
+      m2.value.project.name += '232323232';
+      m3.name += '---';
+      m3.wife.name += '99';
+    }
+    return {
+      m1,
+      m2,
+      m3,
+      update
+    }
+  }
+});
+</script>
+
+```
 
